@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import {Home, Results} from "./screens";
 import "./styles/styles.css";
 
-export const App = () => {
+function App(){
   return (
     <div className="App">
        <Routes>
@@ -12,3 +12,4 @@ export const App = () => {
     </div>
   );
 }
+export default App
