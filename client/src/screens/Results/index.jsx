@@ -11,6 +11,10 @@ export const Results = () => {
   
   useEffect(() =>{
       // TODO: API call using params.search to fetch results 
+      //selected medication RXCUI for IN
+      //https://rxnav.nlm.nih.gov/REST/rxcui/847488/related.json?tty=IN
+      //main ingredient rxcui for SCD+SBD
+      //https://rxnav.nlm.nih.gov/REST/rxcui/2551/related.json?tty=SCD+SBD
       console.log(params.search)
   }, [])
 

@@ -5,14 +5,11 @@ import { Search } from "../Search";
 
 export const MedicationSearch = ({onSelect}) =>{
   const [results, setResults] = useState([])
-  const onSubmit = (params) =>{
-      //TODO: format params
-      //TODO: API call to search from input
-    setResults(["testing", "new", "component"])
-    fetch("/api")
+  const onSubmit = async (params) =>{
+    fetch(`/search/${params}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("/API get request", data)
+        setResults(data.content)
       });
   }
   return(

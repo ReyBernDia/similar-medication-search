@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node server/index.js",
     "build": "cd client && npm install && npm run build"
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/ReyBernDia/similar-medication-search#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-fetch": "^3.1.0"
   }
 }
