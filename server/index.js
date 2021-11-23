@@ -1,4 +1,5 @@
-import path from "path";
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from "express";
 import fetch from "node-fetch";
 
@@ -7,7 +8,9 @@ import {getAllConceptProperties} from "./helpers.js";
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
@@ -37,7 +40,7 @@ app.get("/search/:term", async (req, res) => {
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
-  res.sendFile('index.html');
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
