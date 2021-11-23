@@ -1,24 +1,14 @@
-import React from "react";
-import logo from "./assets/smiliar-meds-icon.svg";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import {Home, Results} from "./screens";
+import "./styles/styles.css";
 
-function App() {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-
+export const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="loading-text">{!data ? "Loading..." : data}</p>
-      </header>
+       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="search/:search" element={<Results />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;

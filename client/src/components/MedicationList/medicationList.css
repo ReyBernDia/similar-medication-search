@@ -1,0 +1,7 @@
+li {
+  padding-bottom: 8px;
+}
+li:hover {
+  color: grey;
+  cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.home {
+  margin: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.home__popular-section {
+  width: 300px;
+}
+.home__section-title {
+  margin-bottom: 32px;
+  font-size: 20px;
+  color: black;
+}
+.home__medication-search {
+  width: 300px;
+  margin-left: 26px;
+}

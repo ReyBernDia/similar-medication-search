@@ -1,0 +1,7 @@
+@import "../components/Loader/loader.css";
+@import "../components/Search/search.css";
+@import "../components/MedicationList/medicationList.css";
+@import "../components/MedicationSearch/medicationSearch.css";
+
+@import "../screens/Results/results.css";
+@import "../screens/Home/home.css";
