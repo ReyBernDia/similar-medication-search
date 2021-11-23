@@ -2,9 +2,11 @@
   margin: 40px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .home__popular-section {
   width: 300px;
+  margin-right: 26px;
 }
 .home__section-title {
   margin-bottom: 32px;
@@ -13,5 +15,4 @@
 }
 .home__medication-search {
   width: 300px;
-  margin-left: 26px;
 }
