@@ -15,9 +15,6 @@ const client = redis.createClient(REDIS_URL);
 client.on("error", function (error) {
   console.error(error);
 });
-client.on("connect", function () {
-  console.log("Connected!");
-});
 
 const PORT = process.env.PORT || 3001;
 
