@@ -32,20 +32,23 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <section className="home__popular-section">
-        <p className="home__section-title">Popular medication searches</p>
-        {popularMedications ? (
-          <MedicationList
-            results={popularMedications}
-            onSelect={onSelectPopular}
-          />
-        ) : (
-          <Loader />
-        )}
-      </section>
-      <section className="home__medication-search">
-        <MedicationSearch onSelect={onMedicationSelection} />
-      </section>
+      <p className="home__title">Similar Medication Search</p>
+      <div className="home__section-container">
+        <section className="home__popular-section">
+          <p className="home__section-title">Popular medication searches</p>
+          {popularMedications ? (
+            <MedicationList
+              results={popularMedications}
+              onSelect={onSelectPopular}
+            />
+          ) : (
+            <Loader />
+          )}
+        </section>
+        <section className="home__medication-search">
+          <MedicationSearch onSelect={onMedicationSelection} />
+        </section>
+      </div>
     </div>
   );
 };

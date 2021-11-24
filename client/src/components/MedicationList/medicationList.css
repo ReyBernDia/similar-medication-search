@@ -1,7 +1,15 @@
-li {
+.can-select,
+.cannot-select {
   padding-bottom: 8px;
 }
-li:hover {
+.can-select:hover {
   color: grey;
   cursor: pointer;
+}
+.cannot-select:hover {
+  cursor: default;
+  color: black;
+}
+.results-container {
+  padding-left: 10px;
 }

@@ -1,18 +1,32 @@
 .home {
   margin: 40px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 .home__popular-section {
   width: 300px;
   margin-right: 26px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 16px;
 }
 .home__section-title {
   margin-bottom: 32px;
   font-size: 20px;
   color: black;
+  padding-left: 10px;
 }
 .home__medication-search {
   width: 300px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 16px;
+}
+.home__section-container {
+  display: flex;
+}
+.home__title {
+  font-size: 24px;
+  align-self: center;
 }
