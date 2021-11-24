@@ -5,7 +5,7 @@ It is deployed on Heroku and can be tested on:
 [https://similar-medication-search.herokuapp.com/](https://similar-medication-search.herokuapp.com/)
 
 ## Available Scripts
-From the main directory you can run:
+### From the main directory you can run:
 ### `npm start`
 
 Runs the server in development mode 
@@ -15,7 +15,7 @@ Runs the server in development mode
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-In the /client directory, you can run:
+### In the /client directory, you can run:
 
 ### `npm start`
 
