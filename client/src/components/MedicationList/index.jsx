@@ -3,7 +3,7 @@ export const MedicationList = ({results, onSelect}) =>{
   <div className="results-container">
     {
     results?.map(
-      med => <li key={med} onClick={() => onSelect && onSelect(med)}>{med.name}</li>)
+      med => <li key={med.rxcui} onClick={() => onSelect && onSelect(med.rxcui, med.name)}>{med.name}</li>)
     }
   </div>
   )

@@ -7,3 +7,7 @@ export const getAllConceptProperties = (conceptGroup) =>{
     });
    return allConceptProperties.flat()
 }
+
+export const getMainIngredient = (relatedData) =>{
+  return relatedData?.relatedGroup?.conceptGroup[0]?.conceptProperties[0]?.rxcui
+}

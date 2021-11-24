@@ -15,7 +15,12 @@ export const Results = () => {
       //https://rxnav.nlm.nih.gov/REST/rxcui/847488/related.json?tty=IN
       //main ingredient rxcui for SCD+SBD
       //https://rxnav.nlm.nih.gov/REST/rxcui/2551/related.json?tty=SCD+SBD
-      console.log(params.search)
+      console.log(params.rxcui)
+      console.log(params.name)
+      // /ingredient/:rxcui
+      fetch(`/related/${params.rxcui}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, [])
 
   return(
@@ -24,7 +29,7 @@ export const Results = () => {
         <Link to="/">Back</Link>
       </nav>
       <p className={`${BASE_CLASS}__header`}>
-        Medications associated with {params.search}
+        Medications associated with {params.name}
       </p>
       {results ? <MedicationList/> : <Loader/>}
     </div>

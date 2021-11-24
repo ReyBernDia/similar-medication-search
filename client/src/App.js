@@ -7,7 +7,7 @@ function App(){
     <div className="App">
        <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="search/:search" element={<Results />} />
+        <Route path="search/:rxcui/:name" element={<Results />} />
       </Routes>
     </div>
   );

@@ -15,8 +15,8 @@ export const Home = () => {
       .then((data) => setPopular([data.message]));
   }, []);
 
-  const onMedicationSelection = (medication) =>{
-    navigate(`search/${medication}`);
+  const onMedicationSelection = (rxcui, name) =>{
+    navigate(`search/${rxcui}/${name}`);
   }
 
   return (

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 import express from "express";
 import fetch from "node-fetch";
 
-import {getAllConceptProperties} from "./helpers.js";
+import {getAllConceptProperties, getMainIngredient} from "./helpers.js";
 
 const PORT = process.env.PORT || 3001;
 
@@ -25,7 +25,7 @@ app.get("/search/:term", async (req, res) => {
     const response =  await fetch(url, {method: "GET"});
     if(response?.status === 200){
       const drugData = await response.json()
-      const conceptGroup = drugData.drugGroup?.conceptGroup
+      const conceptGroup = drugData?.drugGroup?.conceptGroup
       if(conceptGroup){
         res.json({content: getAllConceptProperties(conceptGroup)})
       }else{
@@ -34,6 +34,31 @@ app.get("/search/:term", async (req, res) => {
     }
   }catch(e){
     res.send("There was an error making this request")
+    console.error(e)
+  }
+})
+
+app.get("/related/:rxcui", async (req, res) =>{
+  const url = `https://rxnav.nlm.nih.gov/REST/rxcui/${req.params.rxcui}/related.json?tty=IN`
+  try{
+    const response =  await fetch(url, {method: "GET"});
+    if(response?.status === 200){
+      const relatedData = await response.json()
+      const rxcui = getMainIngredient(relatedData)
+      // res.json({rxcui: getMainIngredient(relatedData)})
+      if(rxcui){
+        const realtedURL = `https://rxnav.nlm.nih.gov/REST/rxcui/${rxcui}/related.json?tty=SCD+SBD`
+        const res = await fetch(realtedURL, {method: "GET"});
+        if(res?.status === 200){
+          const associatedData = await res.json();
+          console.log("ASOCIATED", associatedData)
+        }
+      }
+    }else{
+      res.send('Sorry, we could not find any related ingredients')
+    }
+  }catch(e){
+    res.send("There was an error making this ingredient request")
     console.error(e)
   }
 })
