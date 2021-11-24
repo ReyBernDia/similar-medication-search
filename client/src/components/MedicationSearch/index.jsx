@@ -10,7 +10,6 @@ export const MedicationSearch = ({ onSelect }) => {
       .then((res) => res.json())
       .then((data) => {
         setResults(data.content);
-        console.log(data.content);
       });
   };
   return (

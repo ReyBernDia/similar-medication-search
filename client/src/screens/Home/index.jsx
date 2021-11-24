@@ -8,14 +8,26 @@ export const Home = () => {
   const [popularMedications, setPopular] = useState();
 
   useEffect(() => {
-    //TODO: create popular meds search
-    fetch("/api")
+    fetch("/updatePopular")
       .then((res) => res.json())
-      .then((data) => console.log(data.message));
+      .then((data) => {
+        const popualrMeds = data.content.map((item) => {
+          return { name: item, rxcui: item };
+        });
+        setPopular(popualrMeds);
+      });
   }, []);
 
-  const onMedicationSelection = (rxcui, name) => {
+  const onMedicationSelection = (name, rxcui) => {
     navigate(`search/${rxcui}/${name}`);
+  };
+
+  const onSelectPopular = async (name, _rxcui) => {
+    fetch(`/getRxcui/${name}`)
+      .then((res) => res.json())
+      .then((data) => {
+        navigate(`search/${data.content}/${name}`);
+      });
   };
 
   return (
@@ -25,7 +37,7 @@ export const Home = () => {
         {popularMedications ? (
           <MedicationList
             results={popularMedications}
-            onSelect={onMedicationSelection}
+            onSelect={onSelectPopular}
           />
         ) : (
           <Loader />

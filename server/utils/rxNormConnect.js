@@ -48,3 +48,19 @@ export const getAssociatedMedications = async (selectedRxcui) => {
     console.error(e);
   }
 };
+
+export const getRxcuiByName = async (name) => {
+  const rxcuiByNameEndpoint = `https://rxnav.nlm.nih.gov/REST/rxcui.json?name=${name}`;
+  try {
+    const response = await fetch(rxcuiByNameEndpoint, {
+      method: "GET",
+    });
+    if (response?.status === 200) {
+      const data = await response.json();
+      return data?.idGroup?.rxnormId?.[0];
+    }
+    return;
+  } catch (e) {
+    console.error(e);
+  }
+};

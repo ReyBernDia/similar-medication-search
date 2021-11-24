@@ -4,7 +4,7 @@ export const MedicationList = ({ results, onSelect }) => {
     : results?.map((med) => (
         <li
           key={med.rxcui}
-          onClick={() => onSelect && onSelect(med.rxcui, med.name)}
+          onClick={() => onSelect && onSelect(med.name, med.rxcui)}
         >
           {med.name}
         </li>
